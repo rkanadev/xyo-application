@@ -113,5 +113,5 @@ namespace Main {
 
 };
 
-XYO_CORE_APPLICATION_MAIN_STD(Main::Application);
+XYO_CORE_APPLICATION_WINMAIN_STD(Main::Application);
 
