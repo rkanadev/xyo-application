@@ -1,0 +1,31 @@
+<html>
+<head>
+<!-- 
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+-->
+<script>
+
+const ipcRenderer = require("electron").ipcRenderer;
+
+function cmdFind(){
+	ipcRenderer.send("find-text", document.forms["textFind"].elements["textToFind"].value);
+};
+
+function cmdFindNext(){
+	ipcRenderer.send("find-text-next", document.forms["textFind"].elements["textToFind"].value);
+};
+
+</script>
+</head>
+<body>
+<form name="textFind" onsubmit="return false;">
+<input type="text" name="textToFind" value="" size="32" onchange="cmdFind();return false;"></input>
+<input type="button" name="findNext" size="8" onclick="cmdFindNext();return false;" value="Next"></input>
+</form>
+</body>
+</html>

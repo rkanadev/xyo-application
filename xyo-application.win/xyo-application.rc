@@ -1,0 +1,17 @@
+//
+// XYO Application
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+
+#include "xyo-core-application-version--os-win-rc.hpp"
+#include "xyo-application-version.hpp"
+#include "xyo-application-copyright.hpp"
+
+1  ICON "xyo-application.ico"
+
+XYO_CORE_APPLICATION_VERSION_INFO(XYO_APPLICATION,"xyo-application.exe","XYO Application");
+

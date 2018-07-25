@@ -1,0 +1,358 @@
+<html>
+<head>
+<!-- 
+//
+// Copyright (c) 2018 Grigore Stefan <g_stefan@yahoo.com>
+// Created by Grigore Stefan <g_stefan@yahoo.com>
+//
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+//
+-->
+<title>Application</title>
+<!-- Application loader -->
+<style>
+/* --- library --- */
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */button,hr,input{overflow:visible}audio,canvas,progress,video{display:inline-block}progress,sub,sup{vertical-align:baseline}[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{padding:.35em .75em .625em}legend{color:inherit;display:table;max-width:100%;white-space:normal}textarea{overflow:auto}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}[hidden],template{display:none}
+/* --- dna loader --- */
+* {
+	box-sizing: border-box;
+}
+
+*::after{
+	box-sizing: border-box;
+}
+
+*::before {
+	box-sizing: border-box;
+}
+
+html {
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	margin: 0px;
+	padding: 0px;	
+}
+
+.outer {
+	display: table;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+
+.middle {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.inner {
+	margin-left: auto;
+	margin-right: auto;
+	width: 128px;
+}
+
+.loader {
+	position: relative;	
+	width: 128px;
+	height: 64px;
+	background-color: #FFF;
+}
+
+.dna-strand {
+	position: relative;
+	width: 16px;
+	height: 64px;
+	float: left;
+}
+
+.dna-atom-1{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	border-radius: 50%;
+	background-color: #0194FE;
+	width: 16px;
+	height: 16px;
+	animation: dna-spin-1 2s linear infinite;
+	transform-origin: center center;
+	transform: scale(0.5);
+}
+
+.dna-link{
+	position: absolute;
+	top: 16px;
+	left: 7px;
+	width: 2px;
+	height: 32px;
+	background-color: rgba(144, 208, 252, 0.5);
+	animation: dna-link 1s linear infinite;
+	transform-origin: center center;
+	border-radius: 50%;
+}
+
+.dna-atom-2{
+	position: absolute;
+	top: 48px;
+	left: 0px;
+	border-radius: 50%;
+	background-color: #0194FE;
+	width: 16px;
+	height: 16px;
+	animation: dna-spin-2 2s linear infinite;
+	transform-origin: center center;
+	transform: scale(0.5);
+}
+
+@keyframes dna-spin-1 {
+	0%{
+		transform: translateY(0px) scale(0.5);
+		z-index: 1;
+		background-color: #0194FE;
+		animation-timing-function: ease-in;
+	}
+	25% {
+		transform: translateY(16px) scale(1);
+		z-index: 1;
+		background-color: #90D0FC;
+		animation-timing-function: ease-out;
+	}
+	50% {
+		transform: translateY(48px) scale(0.5);
+		z-index: 1;
+		background-color: #0194FE;
+		animation-timing-function: ease-in;
+	}
+	75% {
+		transform: translateY(16px) scale(0.25);
+		z-index: 0;
+		background-color: rgba(0, 20, 125, 0);
+		animation-timing-function: ease-out;
+	}
+	100% {
+		transform: translateY(0px) scale(0.5);
+		z-index: 1;
+		background-color: #0194FE;
+		animation-timing-function: ease-in;
+	}
+}
+
+@keyframes dna-spin-2 {
+	0%{
+		transform: translateY(0px) scale(0.5);	
+		z-index: 0;
+		background-color: #0194FE;
+		animation-timing-function: ease-in;
+	}
+	25% {
+		transform: translateY(-16px) scale(0.25);
+		z-index: 0;
+		background-color: rgba(0, 20, 125, 0);
+		animation-timing-function: ease-out;
+	}
+	50% {
+		transform: translateY(-48px) scale(0.5);
+		z-index: 1;
+		background-color: #0194FE;
+		animation-timing-function: ease-in;
+	}
+	75% {
+		transform: translateY(-16px) scale(1);
+		z-index: 1;
+		background-color: #90D0FC;
+		animation-timing-function: ease-out;
+	}
+	100% {
+		transform: translateY(0px) scale(0.5);
+		z-index: 0;
+		background-color: #0194FE;
+		animation-timing-function: ease-in;
+	}
+}
+
+@keyframes dna-link {
+	0%{
+		transform: scaleY(1);
+		animation-timing-function: ease-in;
+	}
+	25% {
+		transform: scaleY(0.2);
+		animation-timing-function: ease-out;
+	}
+	50% {
+		transform: scaleY(0);
+		animation-timing-function: ease-in;
+	}
+	25% {
+		transform: scaleY(0.2);
+		animation-timing-function: ease-out;
+	}
+	100% {
+		transform: scaleY(1);
+		animation-timing-function: ease-in;
+	}
+}
+
+.dna-strand:nth-child(1) *{
+	animation-delay: 0.875s;
+}
+
+.dna-strand:nth-child(2) *{
+	animation-delay: 0.75s;
+}
+
+.dna-strand:nth-child(3) *{
+	animation-delay: 0.625s;
+}
+
+.dna-strand:nth-child(4) *{
+	animation-delay: 0.5s;
+}
+
+.dna-strand:nth-child(5) *{
+	animation-delay: 0.375s;
+}
+
+.dna-strand:nth-child(6) *{
+	animation-delay: 0.25s;
+}
+
+.dna-strand:nth-child(7) *{
+	animation-delay: 0.125s;
+}
+
+.dna-strand:nth-child(8) *{
+	animation-delay: 0s;
+}
+
+.separator{
+	position: relative;
+	height: 2px;
+	overflow: hidden;
+	clear: both;
+}
+
+.line{
+	position: relative;
+	height: 2px;
+	border-radius: 2px;
+	width: 100%;
+	background-color: #E0EFF9;
+}
+
+.line-sub{
+	position: relative;
+	height: 2px;
+	border-radius: 2px;
+	width: 0%;
+	background-color: #0194FE;
+}
+
+#error{
+	position: relative;
+	width: 100%;
+	text-transform: lowercase;
+	color: #CC0000;
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+</style>
+<script>
+
+function setProcent(procent){	
+	var el=document.getElementById("loading-procent");
+	if(el){
+		el.style.width=procent+"%";
+	};
+};
+
+function setError(error){	
+	var el=document.getElementById("error");
+	if(el){
+		el.innerHTML=error;
+		el=document.getElementById("loading-procent");
+		if(el){
+			el.style.backgroundColor="#CC0000";
+		};
+	};
+};
+
+setProcent(0);
+
+ipcRenderer.send("start-application");
+
+ipcRenderer.on("set-procent", (event,procent) => {
+	setProcent(procent);
+});
+
+ipcRenderer.on("set-error", (event,error) => {
+	setError(error);
+});
+
+ipcRenderer.on("connect-application", (event,url) => {	
+	document.location.assign(url);
+});
+
+</script>
+</head>
+<body>
+<div class="outer">
+	<div class="middle">
+		<div class="inner">
+			<div class="loader">
+				<div class="dna-strand">
+					<div class="dna-atom-1"></div>
+					<div class="dna-link"></div>
+					<div class="dna-atom-2"></div>
+				</div>
+				<div class="dna-strand">
+					<div class="dna-atom-1"></div>
+					<div class="dna-link"></div>
+					<div class="dna-atom-2"></div>
+				</div>
+				<div class="dna-strand">
+					<div class="dna-atom-1"></div>
+					<div class="dna-link"></div>
+					<div class="dna-atom-2"></div>
+				</div>
+				<div class="dna-strand">
+					<div class="dna-atom-1"></div>
+					<div class="dna-link"></div>
+					<div class="dna-atom-2"></div>
+				</div>
+				<div class="dna-strand">
+					<div class="dna-atom-1"></div>
+					<div class="dna-link"></div>
+					<div class="dna-atom-2"></div>
+				</div>
+				<div class="dna-strand">
+					<div class="dna-atom-1"></div>
+					<div class="dna-link"></div>
+					<div class="dna-atom-2"></div>
+				</div>
+				<div class="dna-strand">
+					<div class="dna-atom-1"></div>
+					<div class="dna-link"></div>
+					<div class="dna-atom-2"></div>
+				</div>
+				<div class="dna-strand">
+					<div class="dna-atom-1"></div>
+					<div class="dna-link"></div>
+					<div class="dna-atom-2"></div>
+				</div>
+				<div class="separator"></div>
+				<div class="line">
+					<div id="loading-procent" class="line-sub"></div>
+				</div>
+				<div id="error"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
